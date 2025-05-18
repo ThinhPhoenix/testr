@@ -1,0 +1,53 @@
+.hamburger {
+  cursor: pointer;
+  display: block;
+  border-radius: 100%;
+  padding: 0.2rem;
+  transition: background-color 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  height: 1.2em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lineTopBottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger:has(input:checked) {
+  background-color: rgba(255, 255, 255, 0.75);
+  background-image: linear-gradient(
+    to right,
+    rgba(252, 231, 243, 0.4),
+    rgba(221, 214, 254, 0.4),
+    rgba(224, 231, 255, 0.4)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 15px -3px rgba(30, 41, 59, 0.05);
+  outline: 1px solid rgba(30, 41, 59, 0.075);
+  backdrop-filter: blur(24px);
+}
+
+.hamburger input:checked + svg .lineTopBottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
